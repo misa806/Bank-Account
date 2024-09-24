@@ -1,0 +1,23 @@
+// main.cpp
+#include <iostream>
+#include <iomanip>
+#include "BankAccount.h"
+using namespace std;
+
+int main() {
+    
+    BankAccount account("Misa", 250.00, 500.00);
+    
+    account.SetChecking(500);
+    account.SetSavings(500);
+    account.WithdrawSavings(150);
+    account.WithdrawChecking(50);
+    account.TransferToSavings(100);
+
+    cout << account.GetName() << endl;
+    cout << fixed << setprecision(2);
+    cout << account.GetChecking() << endl;
+    cout << account.GetSavings() << endl;
+
+    return 0;
+}

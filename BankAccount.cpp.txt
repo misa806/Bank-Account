@@ -1,0 +1,73 @@
+// BankAccount.cpp
+
+#include "BankAccount.h"
+#include <iostream>
+using namespace std;
+
+// Constructor
+BankAccount::BankAccount(string newName, double amt1, double amt2) {
+    customerName = newName;
+    checkingBalance = amt1;
+    savingsBalance = amt2;
+}
+
+// Setter and Getter for customer name
+void BankAccount::SetName(std::string newName) {
+    customerName = newName;
+}
+
+string BankAccount::GetName() const {
+    return customerName;
+}
+
+// Setter and Getter for checking account balance
+void BankAccount::SetChecking(double amt) {
+    checkingBalance = amt;
+}
+
+double BankAccount::GetChecking() const {
+    return checkingBalance;
+}
+
+// Setter and Getter for savings account balance
+void BankAccount::SetSavings(double amt) {
+    savingsBalance = amt;
+}
+
+double BankAccount::GetSavings() const {
+    return savingsBalance;
+}
+
+// Deposit and Withdraw functions for checking account
+void BankAccount::DepositChecking(double amt) {
+    if (amt > 0) {
+        checkingBalance += amt;
+    }
+}
+
+void BankAccount::WithdrawChecking(double amt) {
+    if (amt > 0 && amt <= checkingBalance) {
+        checkingBalance -= amt;
+    }
+}
+
+// Deposit and Withdraw functions for savings account
+void BankAccount::DepositSavings(double amt) {
+    if (amt > 0) {
+        savingsBalance += amt;
+    }
+}
+
+void BankAccount::WithdrawSavings(double amt) {
+    if (amt > 0 && amt <= savingsBalance) {
+        savingsBalance -= amt;
+    }
+}
+
+// Transfer from checking to savings
+void BankAccount::TransferToSavings(double amt) {
+    if (amt > 0 && amt <= checkingBalance) {
+        checkingBalance -= amt;
+        savingsBalance += amt;
+    }
+}
